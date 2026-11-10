@@ -1,0 +1,53 @@
+shot,start,end,action,line,sound
+S01,0,6,Wide: garden after rain. Milo splashes into a puddle and looks up at the sky.,"Milo: ""Look, Pip! A rainbow!""","Music: soft intro bed (low). SFX: puddle splash, birds."
+S02,6,11,"Pip hops beside Milo, looks up, ears droop.","Pip: ""But wait. A stripe is missing!""","SFX: soft 'boing' hop, ears droop 'wobble'."
+S03,11,15,Close-up of the rainbow gap; a tiny sparkle fizzles out where blue should be.,"Milo: ""Oh no! Where did it go?""",SFX: sad descending 'bwoop'. Music: drops out.
+S04,15,21,Title card: 'Milo and the Missing Rainbow Color' over the S01 garden plate.,(silence: action only),"Music: theme sting, 6 s. SFX: sparkle on title reveal."
+S05,21,28,Milo waves at camera.,"Milo: ""Hi, friends! I'm Milo.""","Music: theme bed (low, under dialogue)."
+S06,28,35,"Pip waves at camera, scarf flutters.","Pip: ""And I'm Pip!""",SFX: soft scarf flutter.
+S07,35,43,Both look up at the rainbow; Narrator explains.,"Narrator: ""Milo and Pip love rainbows. But this one is not finished.""",Music: theme bed continues.
+S08,43,50,"Pip counts stripes, tapping the air with her paw.","Pip: ""Red. Orange. Yellow. Green. Purple.""",SFX: soft 'ting' on each color word (5).
+S09,50,57,Milo flaps his wings with determination.,"Milo: ""Something is gone. Let's find it!""",SFX: wing flaps. Music: lifts to 'adventure' theme.
+S10,57,63,Silent beat: Pip spots something white in the grass and gasps.,(silence: action only),SFX: twinkle. Music: curious pizzicato.
+S11,63,70,Both hop to the card. Milo picks it up.,"Milo: ""A clue! There is a picture on it.""","SFX: two soft hops, paper rustle."
+S12,70,76,Insert: card shows a drawing of red tulips.,"Pip: ""Red flowers!""",SFX: sparkle sting.
+S13,76,84,Travel: both hop along a garden path. No dialogue.,(silence: action only),Music: bouncy travel theme. SFX: hops on wet grass.
+S14,84,91,Arrive at the tulip bed; both gasp happily.,"Narrator: ""Milo and Pip find a bed of beautiful flowers.""",Music: settles. SFX: happy gasp.
+S15,91,99,Q1: Milo turns to camera and asks. HOLD 4 s for viewers.,"Milo: ""What color are these flowers?"" [PAUSE 4 s]",Music: soft tick-tock bed under the pause.
+S16,99,105,Pip cheers the answer.,"Pip: ""Red! You got it!""",SFX: cheer 'yay' chime.
+S17,105,112,Silent: Milo sniffs a tulip and sneezes; petals wiggle.,(silence: action only),"SFX: sniff, tiny 'achoo!', petal rustle. Music: playful sting."
+S18,112,119,Pip finds the second card tucked between tulips.,"Pip: ""Look! Another clue!""","SFX: twinkle, paper rustle."
+S19,119,125,Insert: card shows a drawing of a pond with lily pads.,"Milo: ""A pond! Let's go!""",SFX: sparkle sting.
+S20,125,132,Travel: the friends hop toward the pond. No dialogue.,(silence: action only),Music: travel theme reprise.
+S21,132,139,Pond establishing; a lily pad bobs.,"Narrator: ""Here is the pond. The water is calm and shiny.""","SFX: soft water lap, frog-free nature ambience."
+S22,139,147,Q2: Pip asks the viewers. HOLD 4 s.,"Pip: ""What color are the lily pads?"" [PAUSE 4 s]",Music: soft tick-tock bed under the pause.
+S23,147,153,Milo answers proudly.,"Milo: ""Green! Like Pip's scarf!""",SFX: cheer chime.
+S24,153,161,Silent: Milo steps onto a lily pad; it wobbles; he flaps to balance.,(silence: action only),"SFX: wobble 'boing-oing', flaps, tiny splash. Music: comic pizzicato."
+S25,161,168,Milo spots a card floating on the next lily pad.,"Milo: ""There is our next clue!""",SFX: twinkle.
+S26,168,174,Insert: card shows a drawing of tall yellow sunflowers.,"Pip: ""Big yellow flowers!""",SFX: sparkle sting.
+S27,174,180,Milo hops back to the bank and they head off.,"Milo: ""Yellow, just like me!""","SFX: hop, splash. Music: travel theme starts."
+S28,180,188,Travel: hop along the fence to the sunflowers. No dialogue.,(silence: action only),"Music: travel theme, a little faster."
+S29,188,195,Sunflowers tower over the friends; they look up.,"Narrator: ""The sunflowers are so tall!""","SFX: gentle breeze, leaves rustle."
+S30,195,202,Silent: Pip stands on tiptoe; Milo climbs onto Pip's shoulders to reach a card in the leaves.,(silence: action only),"SFX: effort 'hup!', giggles. Music: playful build."
+S31,202,208,"Milo grabs the card; both tumble softly into the grass, laughing.","Milo: ""Got it!""","SFX: soft tumble 'flump', giggles."
+S32,208,214,Insert: card shows a drawing of a pinwheel.,"Pip: ""A pinwheel!""",SFX: sparkle sting.
+S33,214,222,"Pip points down the fence; the pinwheel is far away, glinting.","Pip: ""I see one! At the end of the fence!""",SFX: distant twinkle. Music: anticipation build.
+S34,222,228,Travel: both hurry along the fence. No dialogue.,(silence: action only),Music: build continues.
+S35,228,235,"Pinwheel reveal: still, glowing faintly.","Narrator: ""There it is. A little pinwheel, all alone.""","Music: soft, magical. SFX: gentle hum."
+S36,235,243,Q3: Milo asks the viewers. HOLD 4 s.,"Milo: ""What color is the pinwheel?"" [PAUSE 4 s]",Music: soft tick-tock bed under the pause.
+S37,243,250,Both cheer; Pip connects the idea.,"Pip: ""Blue! The missing color is blue!""",SFX: big cheer chime. Music: rising.
+S38,250,257,Milo blows on the pinwheel; it barely turns.,"Milo: ""Let's make it spin!""","SFX: small 'phoo' blow, a weak click."
+S39,257,264,Pip smiles and stands beside him.,"Pip: ""Let's blow together. One, two, three!""",Music: build to the moment.
+S40,264,270,Silent: both blow; the pinwheel spins fast and glows bright blue.,(silence: action only),"SFX: big 'whoosh', fast whirring, magical chime swell."
+S41,270,278,A ribbon of blue light streams up from the pinwheel into the sky. No dialogue. MULTI-CLIP BEAT (A+B).,(silence: action only),Music: magical swell. SFX: shimmering trail.
+S42,278,285,The ribbon slides into the gap; the rainbow is complete and shines.,(silence: action only),SFX: soft 'click' and sparkle burst. Music: theme in full.
+S43,285,292,Both jump and cheer under the full rainbow.,"Milo: ""We did it!"" Pip: ""The rainbow is whole again!""",SFX: cheers. Music: theme continues.
+S44,292,299,Narrator lands the lesson over a gentle hug.,"Narrator: ""When friends work together, big things can happen.""","Music: warm, softer."
+S45,299,306,Recap intro: both face camera.,"Pip: ""Let's remember the colors we found today.""",Music: gentle recap bed.
+S46,306,312,Recap: red tulips.,"Milo: ""Red tulips.""",SFX: soft 'ting'.
+S47,312,318,Recap: green lily pads.,"Pip: ""Green lily pads.""",SFX: soft 'ting'.
+S48,318,324,Recap: yellow sunflowers.,"Milo: ""Yellow sunflowers.""",SFX: soft 'ting'.
+S49,324,330,Recap: blue pinwheel.,"Pip: ""And a blue pinwheel!""",SFX: soft 'ting'.
+S50,330,338,Both wave goodbye to camera.,"Milo: ""Thank you for helping us!"" Pip: ""Bye-bye, friends!""",Music: theme outro.
+S51,338,346,Silent: the friends hop away down the path under the rainbow. MULTI-CLIP BEAT (A+B).,(silence: action only),Music: theme outro continues.
+S52,346,360,End screen: rainbow sky background with two video-card slots and a subscribe area.,(silence: action only),"Music: theme outro, fade out over the last 3 s."
