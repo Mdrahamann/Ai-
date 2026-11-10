@@ -1,0 +1,378 @@
+[
+ {
+  "who": "Milo",
+  "text": "Look, Pip! A rainbow!",
+  "start": 0.35,
+  "end": 2.269,
+  "shot": "S01"
+ },
+ {
+  "who": "Pip",
+  "text": "But wait. A stripe is missing!",
+  "start": 6.35,
+  "end": 8.815,
+  "shot": "S02"
+ },
+ {
+  "who": "Milo",
+  "text": "Oh no! Where did it go?",
+  "start": 11.35,
+  "end": 13.333,
+  "shot": "S03"
+ },
+ {
+  "who": "Milo",
+  "text": "Hi, friends! I'm Milo.",
+  "start": 21.35,
+  "end": 23.658,
+  "shot": "S05"
+ },
+ {
+  "who": "Pip",
+  "text": "And I'm Pip!",
+  "start": 28.35,
+  "end": 29.636,
+  "shot": "S06"
+ },
+ {
+  "who": "Narrator",
+  "text": "Milo and Pip love rainbows. But this one is not finished.",
+  "start": 35.35,
+  "end": 40.235,
+  "shot": "S07"
+ },
+ {
+  "who": "Pip",
+  "text": "Red. Orange. Yellow. Green. Purple.",
+  "start": 43.35,
+  "end": 46.512,
+  "shot": "S08"
+ },
+ {
+  "who": "Milo",
+  "text": "Something is gone. Let's find it!",
+  "start": 50.35,
+  "end": 52.883,
+  "shot": "S09"
+ },
+ {
+  "who": "Milo",
+  "text": "A clue! There is a picture on it.",
+  "start": 63.35,
+  "end": 65.855,
+  "shot": "S11"
+ },
+ {
+  "who": "Pip",
+  "text": "Red flowers!",
+  "start": 70.35,
+  "end": 71.681,
+  "shot": "S12"
+ },
+ {
+  "who": "Narrator",
+  "text": "Milo and Pip find a bed of beautiful flowers.",
+  "start": 84.35,
+  "end": 87.955,
+  "shot": "S14"
+ },
+ {
+  "who": "Milo",
+  "text": "What color are these flowers?",
+  "start": 91.35,
+  "end": 93.6,
+  "shot": "S15"
+ },
+ {
+  "who": "Pip",
+  "text": "Red! You got it!",
+  "start": 99.35,
+  "end": 100.915,
+  "shot": "S16"
+ },
+ {
+  "who": "Pip",
+  "text": "Look! Another clue!",
+  "start": 112.35,
+  "end": 113.983,
+  "shot": "S18"
+ },
+ {
+  "who": "Milo",
+  "text": "A pond! Let's go!",
+  "start": 119.35,
+  "end": 121.264,
+  "shot": "S19"
+ },
+ {
+  "who": "Narrator",
+  "text": "Here is the pond. The water is calm and shiny.",
+  "start": 132.35,
+  "end": 136.019,
+  "shot": "S21"
+ },
+ {
+  "who": "Pip",
+  "text": "What color are the lily pads?",
+  "start": 139.35,
+  "end": 141.423,
+  "shot": "S22"
+ },
+ {
+  "who": "Milo",
+  "text": "Green! Like Pip's scarf!",
+  "start": 147.35,
+  "end": 149.403,
+  "shot": "S23"
+ },
+ {
+  "who": "Milo",
+  "text": "There is our next clue!",
+  "start": 161.35,
+  "end": 163.29,
+  "shot": "S25"
+ },
+ {
+  "who": "Pip",
+  "text": "Big yellow flowers!",
+  "start": 168.35,
+  "end": 170.042,
+  "shot": "S26"
+ },
+ {
+  "who": "Milo",
+  "text": "Yellow, just like me!",
+  "start": 174.35,
+  "end": 176.303,
+  "shot": "S27"
+ },
+ {
+  "who": "Narrator",
+  "text": "The sunflowers are so tall!",
+  "start": 188.35,
+  "end": 190.889,
+  "shot": "S29"
+ },
+ {
+  "who": "Milo",
+  "text": "Got it!",
+  "start": 202.35,
+  "end": 203.423,
+  "shot": "S31"
+ },
+ {
+  "who": "Pip",
+  "text": "A pinwheel!",
+  "start": 208.35,
+  "end": 209.512,
+  "shot": "S32"
+ },
+ {
+  "who": "Pip",
+  "text": "I see one! At the end of the fence!",
+  "start": 214.35,
+  "end": 216.914,
+  "shot": "S33"
+ },
+ {
+  "who": "Narrator",
+  "text": "There it is. A little pinwheel, all alone.",
+  "start": 228.35,
+  "end": 231.337,
+  "shot": "S35"
+ },
+ {
+  "who": "Milo",
+  "text": "What color is the pinwheel?",
+  "start": 235.35,
+  "end": 237.639,
+  "shot": "S36"
+ },
+ {
+  "who": "Pip",
+  "text": "Blue! The missing color is blue!",
+  "start": 243.35,
+  "end": 245.745,
+  "shot": "S37"
+ },
+ {
+  "who": "Milo",
+  "text": "Let's make it spin!",
+  "start": 250.35,
+  "end": 252.246,
+  "shot": "S38"
+ },
+ {
+  "who": "Pip",
+  "text": "Let's blow together. One, two, three!",
+  "start": 257.35,
+  "end": 260.344,
+  "shot": "S39"
+ },
+ {
+  "who": "Milo",
+  "text": "We did it!",
+  "start": 285.35,
+  "end": 286.647,
+  "shot": "S43"
+ },
+ {
+  "who": "Pip",
+  "text": "The rainbow is whole again!",
+  "start": 286.997,
+  "end": 289.032,
+  "shot": "S43"
+ },
+ {
+  "who": "Narrator",
+  "text": "When friends work together, big things can happen.",
+  "start": 292.35,
+  "end": 295.934,
+  "shot": "S44"
+ },
+ {
+  "who": "Pip",
+  "text": "Let's remember the colors we found today.",
+  "start": 299.35,
+  "end": 302.139,
+  "shot": "S45"
+ },
+ {
+  "who": "Milo",
+  "text": "Red tulips.",
+  "start": 306.35,
+  "end": 307.902,
+  "shot": "S46"
+ },
+ {
+  "who": "Pip",
+  "text": "Green lily pads.",
+  "start": 312.35,
+  "end": 313.87,
+  "shot": "S47"
+ },
+ {
+  "who": "Milo",
+  "text": "Yellow sunflowers.",
+  "start": 318.35,
+  "end": 320.227,
+  "shot": "S48"
+ },
+ {
+  "who": "Pip",
+  "text": "And a blue pinwheel!",
+  "start": 324.35,
+  "end": 325.914,
+  "shot": "S49"
+ },
+ {
+  "who": "Milo",
+  "text": "Thank you for helping us!",
+  "start": 330.35,
+  "end": 332.37,
+  "shot": "S50"
+ },
+ {
+  "who": "Pip",
+  "text": "Bye-bye, friends!",
+  "start": 332.72,
+  "end": 334.314,
+  "shot": "S50"
+ },
+ {
+  "who": "Milo",
+  "text": "Ahh... choo!",
+  "start": 109.0,
+  "end": 110.42,
+  "shot": "S17",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Hup!",
+  "start": 196.2,
+  "end": 197.057,
+  "shot": "S30",
+  "vocal": true
+ },
+ {
+  "who": "Pip",
+  "text": "Hee hee!",
+  "start": 199.5,
+  "end": 200.595,
+  "shot": "S30",
+  "vocal": true
+ },
+ {
+  "who": "Pip",
+  "text": "Hee hee hee!",
+  "start": 205.2,
+  "end": 206.442,
+  "shot": "S31",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Ha ha!",
+  "start": 206.692,
+  "end": 207.92,
+  "shot": "S31",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Yay!",
+  "start": 102.0,
+  "end": 103.014,
+  "shot": "S16",
+  "vocal": true
+ },
+ {
+  "who": "Pip",
+  "text": "Oh!",
+  "start": 58.0,
+  "end": 58.813,
+  "shot": "S10",
+  "vocal": true
+ },
+ {
+  "who": "Pip",
+  "text": "Ooh!",
+  "start": 88.205,
+  "end": 88.965,
+  "shot": "S14",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Phooo!",
+  "start": 264.2,
+  "end": 265.273,
+  "shot": "S40",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Yay!",
+  "start": 290.2,
+  "end": 291.214,
+  "shot": "S43",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Phoo!",
+  "start": 252.6,
+  "end": 253.607,
+  "shot": "S38",
+  "vocal": true
+ },
+ {
+  "who": "Milo",
+  "text": "Whoa!",
+  "start": 157.5,
+  "end": 158.453,
+  "shot": "S24",
+  "vocal": true
+ }
+]
