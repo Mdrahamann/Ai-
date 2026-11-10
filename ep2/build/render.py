@@ -132,7 +132,7 @@ def caption(im, text, hi, t, t0, t1, pos="low"):
     d0 = ImageDraw.Draw(im)
     tw = d0.textlength(text, font=f)
     padx, h = 46, 104 if pos != "tag" else 78
-    cx = W / 2; cy = {"low": 900, "tag": 80, "mid": 540}[pos]
+    cx = W / 2; cy = {"low": 900, "tag": 80, "mid": 540, "top": 120}[pos]
     sc = 0.85 + 0.15 * ease((t - t0) / 0.25)
     L = Image.new("RGBA", (int(tw + padx * 2 + 20), h + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(L)
     d.rounded_rectangle((10, 10, 10 + tw + padx * 2, 10 + h), radius=h // 2, fill=(255, 248, 235, 240), outline=(235, 200, 160), width=4)
@@ -380,7 +380,7 @@ def build(sid):
     if sid == "S03":
         return Scene(porch, back=gb, chars=[Char("milo_surprised", 960, 1250, 900, who=M, motion=comb(const(tint=0.7, sx=1.06, sy=1.05), shake(6, 30)))],
                      layers=[lambda im, dr, t, d, w: bang(dr, 1330, 260, t, 0.3), lambda im, dr, t, d, w: puff_lines(dr, 640, 330, t, 1.0),
-                             cap("FRUSTRATED", ["FRUSTRATED"], 0.5, 2.9)], wind=0.3, cam=(1.0, 960, 540, 1.06, 960, 500))
+                             cap("FRUSTRATED", ["FRUSTRATED"], 0.5, 2.9, "top")], wind=0.3, cam=(1.0, 960, 540, 1.06, 960, 500))
     if sid in ("S04", "S23"):
         lift = (lambda t, d: dict(dy=-35 * ramp(t, 0.8, 1.8))) if sid == "S04" else (lambda t, d: dict(dy=-6 * math.sin(t * 2) if 1 < t < 2 else 0))
         def pose(t, d): return dict(pose="pip_front" if (sid == "S04" and t < 0.9) else "pip_worried")
