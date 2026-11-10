@@ -9,7 +9,7 @@
 
 ## Generated so far (Higgsfield, model flux_3_image)
 - Milo reference sheet: job `76f7f758-3549-4319-8899-3cd906aee12e` (saved as `assets/milo_sheet.webp`)
-- Pip reference sheet: job `fdacf664-0626-455b-906f-24f63e0825a3`
+- Pip reference sheet: job `fdacf664-0626-455b-906f-24f63e0825a3` (saved as `assets/pip_sheet.webp`)
 
 Use these job IDs as `start_image` / `image_references` for the video shots so the characters stay consistent.
 
