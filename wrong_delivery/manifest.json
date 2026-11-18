@@ -1,0 +1,104 @@
+{
+  "project": "The Wrong Delivery",
+  "episode": 1,
+  "format": {
+    "aspect": "16:9",
+    "fps": 24,
+    "target": "1920x1080",
+    "duration_s": 42
+  },
+  "characters": [
+    {
+      "id": "alex",
+      "name": "Alex Carter",
+      "sheet": "01_character_references/CHAR_ALEX_CARTER.png",
+      "size": "1448x1086"
+    },
+    {
+      "id": "mia",
+      "name": "Mia Reyes",
+      "sheet": "01_character_references/CHAR_MIA_REYES.png",
+      "size": "1448x1086"
+    }
+  ],
+  "shots": [
+    {
+      "id": "01",
+      "start": "00:00",
+      "end": "00:07",
+      "title": "Car chase",
+      "keyframe": "02_storyboard_keyframes/SHOT_01_CAR_CHASE.png",
+      "size": "1672x941",
+      "line": "Alex (VO): \"Three hours ago, this was supposed to be a simple delivery.\"",
+      "sfx": "Engine rev, tire spray, distant sirens",
+      "status": "keyframe_only (no motion clip yet)"
+    },
+    {
+      "id": "02",
+      "start": "00:07",
+      "end": "00:14",
+      "title": "Nightclub handoff",
+      "keyframe": "02_storyboard_keyframes/SHOT_02_NIGHTCLUB_HANDOFF.png",
+      "size": "1672x941",
+      "line": "Mia: \"Pier Nineteen. Midnight. Do not open the package.\"",
+      "sfx": "Nightclub murmur, rain, envelope rustle",
+      "status": "keyframe_only (no motion clip yet)"
+    },
+    {
+      "id": "03",
+      "start": "00:14",
+      "end": "00:21",
+      "title": "Dock pickup",
+      "keyframe": "02_storyboard_keyframes/SHOT_03_DOCK_PICKUP.png",
+      "size": "1672x941",
+      "line": "Alex (VO): \"I should have walked away the moment I saw that box.\"",
+      "sfx": "Harbour wind, metal creak, footsteps",
+      "status": "keyframe_only (no motion clip yet)"
+    },
+    {
+      "id": "04",
+      "start": "00:21",
+      "end": "00:28",
+      "title": "Blue case reveal",
+      "keyframe": "02_storyboard_keyframes/SHOT_04_BLUE_CASE_REVEAL.png",
+      "size": "1672x941",
+      "line": "Alex: \"What the hell is this?\"",
+      "sfx": "Latch click, low electronic pulse",
+      "status": "keyframe_only (no motion clip yet)"
+    },
+    {
+      "id": "05",
+      "start": "00:28",
+      "end": "00:35",
+      "title": "Alley escape",
+      "keyframe": "02_storyboard_keyframes/SHOT_05_ALLEY_ESCAPE.png",
+      "size": "1672x941",
+      "line": "Alex (VO): \"By then, half the city was looking for me.\"",
+      "sfx": "Running footsteps, sirens, helicopter hum",
+      "status": "keyframe_only (no motion clip yet)"
+    },
+    {
+      "id": "06",
+      "start": "00:35",
+      "end": "00:42",
+      "title": "Dawn confrontation",
+      "keyframe": "02_storyboard_keyframes/SHOT_06_DAWN_CONFRONTATION.png",
+      "size": "1672x941",
+      "line": "Mia: \"You were never meant to deliver it. You were meant to disappear.\"",
+      "sfx": "Room tone, rising original tension sting",
+      "status": "keyframe_only (no motion clip yet)"
+    }
+  ],
+  "preview": "05_preview/THE_WRONG_DELIVERY_42s_SILENT_ANIMATIC.mp4 (1280x720, 24 fps, 42.0 s, moving stills, silent)",
+  "validated": {
+    "images": 8,
+    "all_open_ok": true,
+    "keyframes_16x9": true,
+    "sheets_4x3": true
+  },
+  "props": [
+    "flat dark envelope (S02)",
+    "brown taped box (S03)",
+    "dark hard case with blue-glowing device (S04)"
+  ]
+}
