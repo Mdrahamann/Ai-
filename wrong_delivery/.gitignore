@@ -1,0 +1,9 @@
+# your original images and generated video stay local
+pack/*
+!pack/.gitkeep
+clips/*
+!clips/.gitkeep
+final/*
+!final/.gitkeep
+build/out/
+__pycache__/
