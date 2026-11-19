@@ -7,3 +7,4 @@ final/*
 !final/.gitkeep
 build/out/
 __pycache__/
+build/out_prototype/
