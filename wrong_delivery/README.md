@@ -62,3 +62,8 @@ How it was tested: planted flaws in stand-in clips made from your keyframes. A p
 - The kit's six images (both character sheets, Shot 1 anchor, Shots 3, 5, 6 originals) are **byte-identical** to our originals. Nothing is corrected in the kit. The only new file is `SHOT_01_CAR_VISIBLE_CROP.png`, now in `ref/` (it shows the honeycomb grille and hood vents more clearly than our crop).
 - The kit's edit prompts and ours agree on every decision. Differences resolved in `IMAGE_CORRECTION_CHECKLIST.md`: the car turnaround now has four views (adds direct rear, as the kit asks); the car description now includes the honeycomb grille and hood vents; Shot 5 keeps pursuers far back (60 to 80 m) with weapons lowered or hidden.
 - No images corrected yet. They must be generated in ChatGPT and visually checked; this session can't retrieve Higgsfield outputs to verify them.
+
+## Prototype rough cut and Episode 1 plan (2026-11-19)
+- **Prototype:** `final/the_wrong_delivery_pilot_PROTOTYPE.mp4`, 33.5 s, 1920x1080. 14 s of AI motion (your two uploaded clips, unchanged and copied to `clips/`) and 19.5 s of labelled storyboard stills, with voices, sound and subtitles. Rebuild: `PILOT=pilot_prototype.json AUDIO_OUT=build/out_prototype python3 build/audio.py && PILOT=pilot_prototype.json python3 build/timeline.py --audio build/out_prototype/mix.wav --srt build/out_prototype/pilot.srt --subtitles`.
+- **Gaps:** `PRODUCTION_GAPS.md`.
+- **Full episode plan (8:00):** `episode1/EPISODE1_SCREENPLAY.md`, `episode1/episode1_shot_list.csv`, `episode1/ANIMATION_PLAN.md`. Regenerate with `python3 episode1/plan.py` (it checks the 480 s runtime, line timing and story rules).

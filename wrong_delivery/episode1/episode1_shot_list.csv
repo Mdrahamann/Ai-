@@ -1,0 +1,66 @@
+shot,scene,start,end,dur_s,type,asset_status,animation_risk,in_frame,visual,camera,dialogue,sound
+1.01,1,0:00,0:06,6,CLIP,PROTOTYPE,H,CAR,"The black coupe drives hard along the wet waterfront boulevard, water spraying from the tires, police lights far behind.",low tracking shot alongside,"ALEX (V.O.): ""Three hours ago, this was supposed to be a simple delivery.""","rain, rising engine, tire spray, distant sirens"
+1.02,1,0:06,0:12,6,CLIP,NEW,M,ALEX,"Inside the car: Alex grips the wheel, eyes flicking to the mirror, jaw tight. Empty hands on the wheel, nothing else.",close-up through the windscreen,,"engine, rain on glass"
+1.03,1,0:12,0:18,6,CLIP,NEW,M,ALEX,The mirror: two police cars and a helicopter searchlight sweeping the wet road behind him.,close-up on the rear-view mirror,,"sirens, helicopter rotor"
+1.04,1,0:18,0:26,8,CLIP,NEW,H,CAR,"The coupe slides through a wide turn and dives into an underpass, headlights stabbing through the rain.","wide tracking shot, slight pan","ALEX: ""Come on, come on, come on.""","tire squeal, engine, echo in the underpass"
+1.05,1,0:26,0:32,6,CLIP,NEW,L,ALEX,"A cold blue glow pulses from the passenger footwell and washes over Alex's face. He glances down, then away.",static close-up,,low electronic pulse
+1.06,1,0:32,0:40,8,CLIP,NEW,H,CAR,A police roadblock ahead. Alex cuts hard into a dark side street; the cruisers overshoot behind him.,low front-quarter tracking shot,,"sirens, tire squeal, impact of rain"
+1.07,1,0:40,0:48,8,TITLE,NEW,L,,Hard cut to black. Title: THE WRONG DELIVERY. A low sting rises and stops dead.,"title card, no AI clip",,"tension sting, silence"
+2.01,2,0:48,0:55,7,CLIP,NEW,L,,"Title super: THREE HOURS EARLIER. Caldera Bay at dusk in the rain, towers, harbour, neon switching on.",slow aerial push in,,"city ambience, rain"
+2.02,2,0:55,1:02,7,CLIP,NEW,M,"ALEX,CAR","A lock-up garage. Alex, sleeves rolled, works under the hood of the black coupe. A bare bulb swings. Unpaid notices are piled on the bench.",slow side dolly,,"wrench on metal, rain on tin roof"
+2.03,2,1:02,1:10,8,CLIP,NEW,M,ALEX,His phone buzzes on the bench. He wipes his hands and answers.,medium shot,"MIA (PHONE): ""Still need the money?"" / ALEX: ""Who is this?""","phone buzz, rain"
+2.04,2,1:10,1:16,6,CLIP,NEW,L,ALEX,Close on Alex's face as he listens. We hear only the voice.,slow push in,"MIA (PHONE): ""Someone who needs a driver. Tonight.""",room tone
+2.05,2,1:16,1:23,7,CLIP,NEW,L,ALEX,"He looks at the stack of unpaid notices, then at the coupe. He decides.","insert on the notices, then pan to Alex",,"quiet, drip"
+2.06,2,1:23,1:30,7,CLIP,NEW,M,ALEX,"He shrugs on the weathered black leather jacket, straightens the silver watch on his wrist.",medium close-up,,"leather, zipper"
+2.07,2,1:30,1:38,8,CLIP,NEW,M,"ALEX,CAR",Alex gets into the coupe. The engine catches. He looks at himself in the mirror.,over-the-shoulder,"ALEX: ""One job. That's all.""",engine start
+2.08,2,1:38,1:46,8,CLIP,NEW,H,CAR,"The car rolls out of the garage into the street, headlights sweeping across the wet road and the sign of the garage.",wide shot from across the street,"MIA (PHONE): ""Eleven o'clock. The Meridian Club. Don't be late.""","engine, rain, phone voice"
+3.01,3,1:46,1:54,8,CLIP,NEW,M,CAR,"The Meridian Club: curved magenta canopy, warm-gold entrance, velvet ropes. The coupe pulls up on the wet asphalt.","wide establishing shot, slow push in",,"club bass through doors, rain"
+3.02,3,1:54,1:59,5,CLIP,NEW,M,ALEX,Alex steps out and nods at the doorman.,medium shot,,"car door, rain"
+3.03,3,1:59,2:06,7,CLIP,NEW,M,MIA,"Mia Reyes comes out under a doorman's umbrella: burgundy satin blouse, cream blazer, gold hoops. She walks straight to him.",low-angle tracking shot,,"heels on wet stone, bass"
+3.04,3,2:06,2:14,8,CLIP,NEW,M,"ALEX,MIA","Two-shot over Alex's shoulder, the club glowing behind Mia.",over-the-shoulder,"MIA: ""You're late."" / ALEX: ""You said eleven. It's ten fifty-eight.""","rain, bass"
+3.05,3,2:14,2:22,8,CLIP,NEW,M,"ALEX,MIA",Mia does not smile. Alex rests an arm on the roof of the car.,"two-shot, slow push in","MIA: ""Names don't matter tonight. Delivery does."" / ALEX: ""I drive. I don't deliver.""",rain
+3.06,3,2:22,2:29,7,CLIP,STORYBOARD,M,"ALEX,MIA",Mia holds out a flat dark envelope. Alex takes it.,over-the-shoulder dolly in,"MIA: ""Pier Nineteen. Midnight. Do not open the package.""","envelope rustle, rain"
+3.07,3,2:29,2:36,7,CLIP,NEW,L,ALEX,Close on the envelope in Alex's hands. He tests its weight. Almost nothing.,"insert, shallow focus","ALEX: ""What's in it?"" / MIA: ""Instructions. Nothing else.""",paper
+3.08,3,2:36,2:43,7,CLIP,NEW,M,MIA,"Mia steps closer and lowers her voice, rain on her hair.",medium close-up,"MIA: ""If anyone asks, you never met me.""",rain
+3.09,3,2:43,2:49,6,CLIP,NEW,M,ALEX,"Alex pockets the envelope. Across the street a parked sedan, two men inside, watching. He sees them; Mia does not.",slow pan from Alex to the sedan,,"idle engine, rain"
+3.10,3,2:49,2:55,6,CLIP,NEW,M,MIA,Mia walks back into the club. The doorman closes the velvet rope behind her.,wide shot,"ALEX: ""Easy money.""","bass swells, door shuts"
+3.11,3,2:55,3:02,7,CLIP,NEW,M,"ALEX,CAR",Alex is back in the car. In the rain-streaked side window we see the sedan's headlights come on.,close on the window reflection,,"engine, rain"
+4.01,4,3:02,3:10,8,CLIP,NEW,H,CAR,"The coupe glides through a tunnel of neon and rain. Behind it, a sedan keeps the same gap.",tracking shot from behind,,"tunnel echo, engine"
+4.02,4,3:10,3:18,8,CLIP,NEW,M,ALEX,Alex checks the mirror and takes a sudden turn. In the mirror the sedan turns too.,"close-up on mirror, then Alex","ALEX: ""Not a coincidence.""",tire squeal
+4.03,4,3:18,3:26,8,CLIP,NEW,H,CAR,Alex runs a late amber light between two trucks. The sedan stops at red and falls out of frame.,wide shot at the intersection,,"horns, engine"
+4.04,4,3:26,3:34,8,CLIP,NEW,L,CAR,"The coupe slows at the gates of Pier 19: stacked containers, cranes, sodium lamps, a ship at anchor.",slow push in through the gate,,"harbour ambience, wind"
+5.01,5,3:34,3:42,8,CLIP,NEW,M,ALEX,"Pier 19 yard in light mist. Alex parks and steps out, the container stacks towering over him.","wide shot, then medium",,"wind, distant crane"
+5.02,5,3:42,3:49,7,CLIP,NEW,M,"ALEX,FOREMAN",A foreman at a container office door reads the envelope under a lamp.,"two-shot, side-on","FOREMAN: ""Wrong night for visitors."" / ALEX: ""Pier Nineteen. Midnight.""","wind, metal creak"
+5.03,5,3:49,3:57,8,CLIP,NEW,M,FOREMAN,The foreman checks both ends of the yard and nods toward a stack.,medium close-up,"FOREMAN: ""Forty-two B. Take the brown box. Nothing else.""",wind
+5.04,5,3:57,4:04,7,CLIP,NEW,M,ALEX,"Alex walks the narrow corridor between containers, cranes looming above.",slow tracking shot from behind,,"footsteps in puddles, creak"
+5.05,5,4:04,4:12,8,CLIP,NEW,M,ALEX,"A medium brown taped box on a pallet, a crane load swinging far above. Alex lifts it. Heavier than it looks.",medium shot,"ALEX: ""It's heavy.""","crane chain, creak"
+5.06,5,4:12,4:19,7,CLIP,STORYBOARD,M,"ALEX,CAR","Alex carries the box past his coupe and stops, turning toward distant footsteps.",side dolly past the car,"ALEX (V.O.): ""I should have walked away the moment I saw that box.""","footsteps, harbour wind"
+5.07,5,4:19,4:27,8,CLIP,NEW,M,ALEX,At the end of the corridor two silhouettes with flashlights search the stacks. Alex ducks behind a container.,"over-the-shoulder, low",,"flashlight click, distant voices"
+5.08,5,4:27,4:34,7,CLIP,NEW,M,ALEX,A flashlight beam crosses the wet metal inches from him. He holds his breath.,extreme close-up,,"heartbeat, rain"
+5.09,5,4:34,4:42,8,CLIP,NEW,M,"ALEX,CAR",He slips to the coupe and sets the box on the passenger seat. He closes the door softly.,medium shot,,"door latch, rain"
+6.01,6,4:42,4:49,7,CLIP,NEW,M,ALEX,"Inside the car, doors locked, rain drumming on the roof. Alex stares at the box.",close-up through the side window,"ALEX: ""Do not open the package.""",rain on roof
+6.02,6,4:49,4:55,6,CLIP,NEW,L,ALEX,He slits the tape with his car key and pulls open the flaps.,insert on hands,,tape rip
+6.03,6,4:55,5:03,8,CLIP,STORYBOARD,L,ALEX,"Inside the box, a hard dark case. A latch clicks. Blue light leaks from under the lid.",slow push in,"ALEX: ""What the hell is this?""","latch click, electronic pulse"
+6.04,6,5:03,5:11,8,CLIP,NEW,L,ALEX,The lid rises. A blue glowing device pulses inside. Alex's face is lit blue.,very slow push in,,rising low pulse
+6.05,6,5:11,5:19,8,CLIP,NEW,M,ALEX,His phone buzzes: MIA. He answers without taking his eyes off the glow.,medium close-up,"ALEX: ""It's glowing, Mia."" / MIA (PHONE): ""Close it. Close it now.""","phone buzz, pulse"
+6.06,6,5:19,5:26,7,CLIP,NEW,H,"ALEX,CAR","In the mirror, three sets of headlights turn in at the pier gate. Alex slams the case shut.","mirror close-up, then wide","MIA (PHONE): ""Drive. Don't stop. Don't call anyone.""","case slam, engines, rain"
+7.01,7,5:26,5:33,7,CLIP,NEW,H,CAR,"The coupe launches, tires spinning on wet concrete. Container stacks blur past.",low tracking shot,,"engine roar, tire spray"
+7.02,7,5:33,5:39,6,CLIP,NEW,H,CAR,"Two black SUVs and a police cruiser pour out of side roads behind him, sirens rising.",wide shot from above,,"sirens, engines"
+7.03,7,5:39,5:47,8,CLIP,PROTOTYPE,H,CAR,"The chase down the waterfront. Alex weaves between cars, water exploding from the tires.",low front-quarter tracking shot,"ALEX (V.O.): ""By then, half the city was looking for me.""","engine, rain, sirens"
+7.04,7,5:47,5:55,8,CLIP,NEW,H,"ALEX,CAR",Close on Alex weaving; sparks scrape under the car. The engine coughs.,tight shot through the windscreen,"ALEX: ""Not now!""","sparks, engine strain"
+7.05,7,5:55,6:02,7,CLIP,NEW,H,CAR,"Alex swings the coupe into a dead-end service alley, kills the lights, and rolls to a stop in the dark.",high rear tracking shot,,"tires on wet stone, engine off"
+7.06,7,6:02,6:10,8,CLIP,STORYBOARD,H,ALEX,"Alex gets out, empty-handed but for the case, and runs out the far end of the alley. Far behind at the mouth, flashlights and police lights; the pursuers are small and distant.",low-angle tracking shot,,"running footsteps, sirens, helicopter"
+7.07,7,6:10,6:18,8,CLIP,NEW,H,ALEX,"He doubles back along a parallel lane, steam rising, a helicopter searchlight sweeping the rooftops.",tracking shot beside him,,"footsteps, helicopter"
+7.08,7,6:18,6:26,8,CLIP,NEW,M,"ALEX,CAR","Alex reaches the dark coupe, throws himself in, turns the key. The helicopter light finds the alley.",close-up,"ALEX: ""Start. Please start.""","engine catches, rotor"
+7.09,7,6:26,6:32,6,CLIP,NEW,H,CAR,"The coupe bursts out of the alley under the searchlight, spray and red taillights, and is gone.","wide shot, locked off",,"engine roar, cut to silence"
+8.01,8,6:32,6:40,8,CLIP,NEW,L,,"Muted peach dawn over Caldera Bay: pale gold at the horizon, soft haze, a glass tower catching the first light.",slow tilt up the tower,,"gulls, distant traffic"
+8.02,8,6:40,6:47,7,CLIP,NEW,M,ALEX,"Alex rides the mirrored elevator, the case in his hand, jaw set, rain still on his jacket.",medium shot,,elevator hum
+8.03,8,6:47,6:55,8,CLIP,NEW,M,MIA,"The doors open. Mia sits behind a dark marble desk, calm, a decanter and one glass beside her.","wide shot, slow dolly in","MIA: ""You came back.""",room tone
+8.04,8,6:55,7:03,8,CLIP,NEW,M,"ALEX,MIA",Alex sets the case on the desk. Mia does not look at it.,two-shot,"ALEX: ""You told me it was a package."" / MIA: ""It was.""",case on marble
+8.05,8,7:03,7:11,8,CLIP,NEW,M,ALEX,"Alex, tired and furious, leans on the desk.",medium close-up,"ALEX: ""Men with guns chased me across the city. It glows, Mia.""",room tone
+8.06,8,7:11,7:19,8,CLIP,NEW,M,MIA,"Mia finally lifts her eyes to him, steady.",close-up,"MIA: ""They weren't after you. They were after it.""",quiet
+8.07,8,7:19,7:28,9,CLIP,NEW,M,"ALEX,MIA",Alex stares at her. The peach light crosses the desk.,"two-shot, slow push in","ALEX: ""Then why send me?"" / MIA: ""You were never meant to deliver it.""","quiet, rising tone"
+8.08,8,7:28,7:36,8,CLIP,STORYBOARD,M,"ALEX,MIA",Alex leans over the desk. Mia slowly lifts her gaze to him.,slow lateral dolly,"ALEX: ""Then what was I meant to do?"" / MIA: ""You were meant to disappear.""",tension sting begins
+9.01,9,7:36,7:44,8,CLIP,NEW,L,MIA,Close on the glowing case on the desk. The pulse quickens. Mia glances at it.,slow push in,"MIA: ""And now it knows your name.""",pulse quickens
+9.02,9,7:44,7:52,8,CLIP,NEW,M,ALEX,"Alex looks at his own blue-lit hands. Through the glass, far below, a black SUV pulls up in the street.",over-the-shoulder to the window,"ALEX (V.O.): ""That's when I understood the delivery was never the job.""","pulse, street ambience"
+9.03,9,7:52,8:00,8,TITLE,NEW,L,,"Hard cut to black. End card: THE WRONG DELIVERY, EPISODE 2 SOON.","title card, no AI clip",,"sting, silence"
