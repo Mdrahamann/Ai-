@@ -6,6 +6,9 @@
 
 Rules (on purpose):
  * No still-image fallback. A missing clip, a clip that is too short, or a clip that fails the quality check stops the build.
+   The one exception is a shot that the config EXPLICITLY declares as "kind": "still" (a storyboard insert). Those are shown with a
+   burned-in "STORYBOARD STILL" label, are never counted as animation, and their total seconds are logged and reported.
+ * Clips marked "prototype": true get a burned-in "PROTOTYPE FOOTAGE" label. A config with "stage": "prototype" writes *_PROTOTYPE.mp4.
    (A clip may be up to 0.12 s short: the last frame is held for that fraction of a second, and it is logged.)
  * Clips that FAIL qc (no real motion, watermark, wrong start frame, frozen video) are refused. With --allow-flagged the film is still
    built, but only as <name>_FLAGGED_NOT_FINAL.mp4 so it can never be mistaken for a finished export.
@@ -34,9 +37,17 @@ def main():
     total = sum(s["dur"] for s in shots); problems = []; warnings = []; reports = {}; log = dict(shots=[])
     if not os.path.exists(a.audio): problems.append(f"audio mix not found: {a.audio} (run audio.py first)")
     for s in shots:
+        if s.get("kind", "clip") == "still":
+            img = os.path.join(a.pack, s["image"])
+            if not os.path.exists(img): problems.append(f"shot {s['id']}: storyboard image missing: {img}"); continue
+            import cv2; im = cv2.imread(img)
+            reports[s["id"]] = dict(probe=dict(width=im.shape[1], height=im.shape[0], duration=s["dur"]), verdict="STILL", checks=[])
+            log["shots"].append(dict(id=s["id"], kind="storyboard_still", image=img, sha256=sha(img), size=[im.shape[1], im.shape[0]], seconds=s["dur"]))
+            if im.shape[1] < W: warnings.append(f"shot {s['id']}: storyboard still is {im.shape[1]}x{im.shape[0]}, scaled up to {W}x{H}")
+            continue
         clip = os.path.join(a.clips, os.path.basename(s["clip"]))
         if not os.path.exists(clip): problems.append(f"shot {s['id']}: clip missing: {clip}. No substitute is used; generate this clip."); continue
-        kf = os.path.join(a.pack, s.get("keyframe", "")); kf = kf if os.path.exists(kf) else None
+        kf = os.path.join(a.pack, s["keyframe"]) if s.get("keyframe") else None; kf = kf if kf and os.path.isfile(kf) else None
         try: rep = qc.analyze_clip(clip, kf, s["dur"], (W, H), outdir=os.path.join(ROOT, "final", "qc"))
         except Exception as e: problems.append(f"shot {s['id']}: cannot read clip ({e})"); continue
         reports[s["id"]] = rep
@@ -48,16 +59,30 @@ def main():
         print("BUILD STOPPED. Fix these first:"); [print("  -", p) for p in problems]; return 1
     flagged = any(r["verdict"] == "FAIL" for r in reports.values())
     out = a.out
+    if cfg.get("stage") == "prototype" and not flagged: out = os.path.splitext(out)[0] + "_PROTOTYPE.mp4"
     if flagged: out = os.path.splitext(out)[0] + "_FLAGGED_NOT_FINAL.mp4"
     inputs = []; chains = []; labels = []
+    FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    def label(text):  # plain words only: no colons or commas, so drawtext needs no escaping
+        return f",drawtext=fontfile={FONT}:text='{text}':x=24:y=24:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.6:boxborderw=10"
+    still_seconds = 0.0; motion_seconds = 0.0
     for i, s in enumerate(shots):
-        clip = os.path.join(a.clips, os.path.basename(s["clip"])); inputs += ["-i", clip]; p = reports[s["id"]]["probe"]
-        pad = max(0.0, s["dur"] - p["duration"])
-        if pad > 0: warnings.append(f"shot {s['id']}: clip is {pad:.2f} s short; last frame held for {pad:.2f} s")
-        if (p["width"], p["height"]) != (W, H): warnings.append(f"shot {s['id']}: native {p['width']}x{p['height']} scaled to {W}x{H} (not native 1080p)")
-        f = f"[{i}:v]fps={FPS},"
-        if pad > 0: f += f"tpad=stop_mode=clone:stop_duration={pad:.3f},"
-        f += f"trim=duration={s['dur']},setpts=PTS-STARTPTS,scale={W}:{H}:flags=lanczos:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p[v{i}]"
+        p = reports[s["id"]]["probe"]
+        if s.get("kind", "clip") == "still":
+            img = os.path.join(a.pack, s["image"]); still_seconds += s["dur"]
+            inputs += ["-loop", "1", "-framerate", str(FPS), "-t", f"{s['dur']}", "-i", img]
+            f = f"[{i}:v]fps={FPS},scale={W}:{H}:flags=lanczos:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+            f += label(s.get("label", "STORYBOARD STILL - not animation")) + f"[v{i}]"
+        else:
+            clip = os.path.join(a.clips, os.path.basename(s["clip"])); inputs += ["-i", clip]; motion_seconds += s["dur"]
+            pad = max(0.0, s["dur"] - p["duration"])
+            if pad > 0: warnings.append(f"shot {s['id']}: clip is {pad:.2f} s short; last frame held for {pad:.2f} s")
+            if (p["width"], p["height"]) != (W, H): warnings.append(f"shot {s['id']}: native {p['width']}x{p['height']} scaled to {W}x{H} (not native 1080p)")
+            f = f"[{i}:v]fps={FPS},"
+            if pad > 0: f += f"tpad=stop_mode=clone:stop_duration={pad:.3f},"
+            f += f"trim=duration={s['dur']},setpts=PTS-STARTPTS,scale={W}:{H}:flags=lanczos:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+            if s.get("prototype"): f += label(s.get("label", "PROTOTYPE FOOTAGE - AI clip - continuity not final"))
+            f += f"[v{i}]"
         chains.append(f); labels.append(f"[v{i}]")
     chains.append("".join(labels) + f"concat=n={len(shots)}:v=1:a=0[vc]")
     last = "[vc]"
@@ -69,10 +94,11 @@ def main():
            "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "256k", "-t", f"{total:.3f}", "-movflags", "+faststart", out]
     print("rendering", out); r = subprocess.run(cmd)
     if r.returncode: print("ffmpeg failed"); return 1
-    log.update(output=out, output_sha256=sha(out), total_seconds=total, flagged=flagged, warnings=warnings, audio_sha256=sha(a.audio), pilot=a.pilot,
+    log.update(output=out, output_sha256=sha(out), total_seconds=total, flagged=flagged, ai_motion_seconds=motion_seconds, storyboard_still_seconds=still_seconds, warnings=warnings, audio_sha256=sha(a.audio), pilot=a.pilot,
                ffmpeg=subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True).stdout.splitlines()[0])
     json.dump(log, open(os.path.join(ROOT, "final", "build_log.json"), "w"), indent=1)
     for w in warnings: print("  warning:", w)
+    print(f"composition: {motion_seconds:.1f} s AI motion clips, {still_seconds:.1f} s storyboard stills, total {total:.1f} s")
     print("built:", out, "(FLAGGED, NOT FINAL)" if flagged else "(now run: python3 qc.py final " + out + ")")
     return 0
 

@@ -17,7 +17,8 @@ from scipy.signal import butter, sosfilt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
-OUT = os.path.join(HERE, "out"); VOX = os.path.join(OUT, "voices"); os.makedirs(VOX, exist_ok=True)
+OUT = os.environ.get("AUDIO_OUT") or os.path.join(HERE, "out"); VOX = os.path.join(OUT, "voices"); os.makedirs(VOX, exist_ok=True)
+CACHE = os.path.join(HERE, "out", "tts_cache")  # voice cache shared by every config
 SR = 48000
 CFG = json.load(open(os.path.join(ROOT, os.environ.get("PILOT", "pilot.json"))))
 SHOTS = CFG["shots"]
@@ -66,7 +67,7 @@ def voices():
     lines = []
     for s in SHOTS:
         for k, L in enumerate(s["lines"]):
-            cache = os.path.join(OUT, "tts_cache"); os.makedirs(cache, exist_ok=True)
+            cache = CACHE; os.makedirs(cache, exist_ok=True)
             key = re.sub(r"[^a-z0-9]+", "_", f"{L['who']}_{L['text']}".lower())[:80]
             p = os.path.join(cache, key + ".npy")
             if os.path.exists(p): a = np.load(p)
@@ -224,7 +225,7 @@ def place(buf, clip, t, g=1.0, fade=0.25):
 def design(s):
     """returns (ambience layers, sfx cues) for a shot as lists of (generator, start offset, gain)."""
     d = s["dur"]; x = 0.35  # ambience beds start slightly before the cut and end after it (cross-fade)
-    sid = s["id"]
+    sid = s.get("sound", s["id"])  # a shot can borrow another shot's sound design
     if sid == "01":
         return ([(lambda D: rain(D, 1.0), -x, 0.9), (lambda D: engine(D, 62, 118), -x, 1.0), (lambda D: tire_spray(D), -x, 0.9),
                  (lambda D: siren(D, 1.0, 0), 0.0, 1.0), (lambda D: siren(D, 1.0, 2), 0.7, 0.7)], [])

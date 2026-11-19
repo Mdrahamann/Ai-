@@ -1,0 +1,107 @@
+{
+  "title": "The Wrong Delivery: first watchable prototype rough cut",
+  "stage": "prototype",
+  "fps": 24,
+  "size": [
+    1920,
+    1080
+  ],
+  "subtitles_default": true,
+  "shots": [
+    {
+      "id": "01",
+      "title": "Chase (prototype AI clip A)",
+      "kind": "clip",
+      "clip": "clips/prototype_A_sports_car_chased_by_police.mp4",
+      "prototype": true,
+      "dur": 6.0,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.3,
+          "text": "Three hours ago, this was supposed to be a simple delivery."
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Nightclub handoff (storyboard)",
+      "kind": "still",
+      "image": "SHOT_02_NIGHTCLUB_HANDOFF.png",
+      "dur": 5.5,
+      "lines": [
+        {
+          "who": "mia",
+          "style": "room",
+          "at": 0.3,
+          "text": "Pier Nineteen. Midnight. Do not open the package."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Dock pickup (storyboard, uncorrected)",
+      "kind": "still",
+      "image": "SHOT_03_DOCK_PICKUP.png",
+      "dur": 4.0,
+      "label": "STORYBOARD STILL - not animation - car design not yet corrected",
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.3,
+          "text": "I should have walked away the moment I saw that box."
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Blue case reveal (storyboard)",
+      "kind": "still",
+      "image": "SHOT_04_BLUE_CASE_REVEAL.png",
+      "dur": 4.0,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "room",
+          "at": 1.2,
+          "text": "What the hell is this?"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Chase (prototype AI clip B)",
+      "kind": "clip",
+      "clip": "clips/prototype_B_sports_coupe_accelerating.mp4",
+      "prototype": true,
+      "dur": 8.0,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.5,
+          "text": "By then, half the city was looking for me."
+        }
+      ],
+      "sound": "01"
+    },
+    {
+      "id": "06",
+      "title": "Dawn confrontation (storyboard, uncorrected)",
+      "kind": "still",
+      "image": "SHOT_06_DAWN_CONFRONTATION.png",
+      "dur": 6.0,
+      "label": "STORYBOARD STILL - not animation - dawn lighting not yet corrected",
+      "lines": [
+        {
+          "who": "mia",
+          "style": "room",
+          "at": 0.2,
+          "text": "You were never meant to deliver it. You were meant to disappear."
+        }
+      ]
+    }
+  ]
+}

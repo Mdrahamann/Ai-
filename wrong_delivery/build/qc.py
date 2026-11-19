@@ -60,7 +60,7 @@ def check_freeze(path):
     total = sum(durs)
     return (("PASS", "no frozen frames") if total < 0.3 else ("REVIEW", f"{total:.1f} s of near-frozen video") if total < 1.5 else ("FAIL", f"{total:.1f} s of frozen video")), total
 
-def check_watermark(frames):
+def check_watermark(frames, ignore=()):
     """Look for a static, high-contrast overlay in a corner while the rest of the picture changes."""
     g = np.stack([cv2.cvtColor(f, cv2.COLOR_BGR2GRAY).astype(np.float32) for _, f in frames]); n, h, w = g.shape
     if n < 6: return "REVIEW", "too few frames to test", {}
@@ -76,6 +76,7 @@ def check_watermark(frames):
     res = {}; flagged = []
     for k, (y, x) in boxes.items():
         ed, st = stat(y, x); res[k] = dict(edge_density=round(ed, 3), static_edge_share=round(st, 2))
+        if k in ignore: res[k]["ignored"] = "our own on-screen label"; continue
         if scene_moves and ed > 0.02 and st > 0.9 and st - b > 0.25: flagged.append(k)
     if flagged: return "FAIL", f"static overlay detected in {', '.join(flagged)}: probably a watermark or logo (check the corner crops)", res
     if not scene_moves: return "REVIEW", "scene is almost static, so a watermark cannot be detected automatically: look at the corner crops", res
@@ -148,7 +149,7 @@ def analyze_clip(path, keyframe=None, need=None, expect=(1920, 1080), outdir=Non
     if outdir: os.makedirs(outdir, exist_ok=True); contact_sheet(frames, os.path.join(outdir, name + "_contact.png"))
     return dict(file=path, probe=p, checks=checks, verdict=verdict(checks), metrics=extra, human_review=HUMAN)
 
-def analyze_final(path, outdir=None, expect=(1920, 1080)):
+def analyze_final(path, outdir=None, expect=(1920, 1080), ignore=(), still_seconds=0.0):
     p = probe(path); frames = sample(path, 0.5); checks = []
     checks.append(("resolution", "PASS" if (p["width"], p["height"]) == tuple(expect) else "FAIL", f"{p['width']}x{p['height']}"))
     checks.append(("frame rate", *check_fps(p)))
@@ -159,9 +160,13 @@ def analyze_final(path, outdir=None, expect=(1920, 1080)):
         I = float(r.split("Integrated loudness:")[1].split("I:")[1].split("LUFS")[0]); P = float(r.split("True peak:")[1].split("Peak:")[1].split("dBFS")[0])
         checks.append(("loudness", "PASS" if -20 <= I <= -12 and P <= -1.0 else "REVIEW", f"{I:.1f} LUFS, true peak {P:.1f} dBFS"))
     except Exception: checks.append(("loudness", "REVIEW", "could not be measured"))
-    fz, total = check_freeze(path); checks.append(("frozen frames", *fz))
+    fz, total = check_freeze(path)
+    if still_seconds:
+        ok = abs(total - still_seconds) <= max(1.5, 0.25 * still_seconds)
+        checks.append(("frozen frames", "REVIEW" if ok else "FAIL", f"{total:.1f} s frozen; {still_seconds:.1f} s of storyboard stills are declared in the config" + ("" if ok else ": the difference means unexpected freezes")))
+    else: checks.append(("frozen frames", *fz))
     st, msg, m = check_motion(frames); checks.append(("real motion", st, msg))
-    st, msg, m2 = check_watermark(frames); checks.append(("watermark", st, msg))
+    st, msg, m2 = check_watermark(frames, ignore); checks.append(("watermark", st, msg))
     bl = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-vf", "blackdetect=d=0.2:pic_th=0.98", "-an", "-f", "null", "-"], capture_output=True, text=True).stderr
     mid = [l for l in bl.splitlines() if "black_start" in l and float(l.split("black_start:")[1].split()[0]) < p["duration"] - 0.5]
     checks.append(("unexpected black frames", "PASS" if not mid else "REVIEW", "none before the final cut" if not mid else "black section(s) inside the film"))
@@ -176,9 +181,9 @@ def to_md(rep):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("mode", choices=["clip", "final"]); ap.add_argument("path"); ap.add_argument("--keyframe"); ap.add_argument("--need", type=float)
-    ap.add_argument("--out", default=os.path.join(HERE, "..", "final", "qc"))
+    ap.add_argument("--out", default=os.path.join(HERE, "..", "final", "qc")); ap.add_argument("--ignore-corner", action="append", default=[]); ap.add_argument("--still-seconds", type=float, default=0.0)
     a = ap.parse_args()
-    rep = analyze_clip(a.path, a.keyframe, a.need, outdir=a.out) if a.mode == "clip" else analyze_final(a.path, outdir=a.out)
+    rep = analyze_clip(a.path, a.keyframe, a.need, outdir=a.out) if a.mode == "clip" else analyze_final(a.path, outdir=a.out, ignore=tuple(a.ignore_corner), still_seconds=a.still_seconds)
     os.makedirs(a.out, exist_ok=True); base = os.path.splitext(os.path.basename(a.path))[0]
     json.dump(rep, open(os.path.join(a.out, base + "_qc.json"), "w"), indent=1); open(os.path.join(a.out, base + "_qc.md"), "w").write(to_md(rep))
     print(to_md(rep)); sys.exit(0 if rep["verdict"] != "FAIL" else 2)
