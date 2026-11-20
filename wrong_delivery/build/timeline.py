@@ -37,6 +37,9 @@ def main():
     total = sum(s["dur"] for s in shots); problems = []; warnings = []; reports = {}; log = dict(shots=[])
     if not os.path.exists(a.audio): problems.append(f"audio mix not found: {a.audio} (run audio.py first)")
     for s in shots:
+        if s.get("kind", "clip") == "title":
+            reports[s["id"]] = dict(probe=dict(width=W, height=H, duration=s["dur"]), verdict="TITLE", checks=[])
+            log["shots"].append(dict(id=s["id"], kind="title_card", text=s.get("text"), seconds=s["dur"])); continue
         if s.get("kind", "clip") == "still":
             img = os.path.join(a.pack, s["image"])
             if not os.path.exists(img): problems.append(f"shot {s['id']}: storyboard image missing: {img}"); continue
@@ -48,13 +51,13 @@ def main():
         clip = os.path.join(a.clips, os.path.basename(s["clip"]))
         if not os.path.exists(clip): problems.append(f"shot {s['id']}: clip missing: {clip}. No substitute is used; generate this clip."); continue
         kf = os.path.join(a.pack, s["keyframe"]) if s.get("keyframe") else None; kf = kf if kf and os.path.isfile(kf) else None
-        try: rep = qc.analyze_clip(clip, kf, s["dur"], (W, H), outdir=os.path.join(ROOT, "final", "qc"))
+        try: rep = qc.analyze_clip(clip, kf, s.get("start", 0) + s["dur"], (W, H), outdir=os.path.join(ROOT, "final", "qc"))
         except Exception as e: problems.append(f"shot {s['id']}: cannot read clip ({e})"); continue
         reports[s["id"]] = rep
         for n, st, d in rep["checks"]:
             if st == "FAIL": (warnings if a.allow_flagged else problems).append(f"shot {s['id']}: {n}: {d}")
             elif st == "REVIEW": warnings.append(f"shot {s['id']}: {n}: {d}")
-        log["shots"].append(dict(id=s["id"], clip=clip, sha256=sha(clip), probe=rep["probe"], qc=rep["verdict"]))
+        log["shots"].append(dict(id=s["id"], clip=clip, sha256=sha(clip), probe=rep["probe"], qc=rep["verdict"], used_from=s.get("start", 0), used_seconds=s["dur"], grade=s.get("grade")))
     if problems:
         print("BUILD STOPPED. Fix these first:"); [print("  -", p) for p in problems]; return 1
     flagged = any(r["verdict"] == "FAIL" for r in reports.values())
@@ -65,9 +68,16 @@ def main():
     FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
     def label(text):  # plain words only: no colons or commas, so drawtext needs no escaping
         return f",drawtext=fontfile={FONT}:text='{text}':x=24:y=24:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.6:boxborderw=10"
-    still_seconds = 0.0; motion_seconds = 0.0
+    still_seconds = 0.0; motion_seconds = 0.0; title_seconds = 0.0
     for i, s in enumerate(shots):
         p = reports[s["id"]]["probe"]
+        if s.get("kind", "clip") == "title":
+            title_seconds += s["dur"]; d = s["dur"]
+            inputs += ["-f", "lavfi", "-t", f"{d}", "-i", f"color=c=black:s={W}x{H}:r={FPS}"]
+            f = f"[{i}:v]format=yuv420p,drawtext=fontfile={FONT}:text='{s['text']}':x=(w-text_w)/2:y=(h-text_h)/2-30:fontsize=92:fontcolor=white"
+            if s.get("subtext"): f += f",drawtext=fontfile={FONT}:text='{s['subtext']}':x=(w-text_w)/2:y=(h/2)+70:fontsize=34:fontcolor=0xC8C8C8"
+            f += f",fade=t=in:st=0.3:d=0.9,fade=t=out:st={d - 0.9:.2f}:d=0.8[v{i}]"
+            chains.append(f); labels.append(f"[v{i}]"); continue
         if s.get("kind", "clip") == "still":
             img = os.path.join(a.pack, s["image"]); still_seconds += s["dur"]
             inputs += ["-loop", "1", "-framerate", str(FPS), "-t", f"{s['dur']}", "-i", img]
@@ -75,12 +85,15 @@ def main():
             f += label(s.get("label", "STORYBOARD STILL - not animation")) + f"[v{i}]"
         else:
             clip = os.path.join(a.clips, os.path.basename(s["clip"])); inputs += ["-i", clip]; motion_seconds += s["dur"]
-            pad = max(0.0, s["dur"] - p["duration"])
+            st0 = s.get("start", 0.0); pad = max(0.0, st0 + s["dur"] - p["duration"])
             if pad > 0: warnings.append(f"shot {s['id']}: clip is {pad:.2f} s short; last frame held for {pad:.2f} s")
             if (p["width"], p["height"]) != (W, H): warnings.append(f"shot {s['id']}: native {p['width']}x{p['height']} scaled to {W}x{H} (not native 1080p)")
             f = f"[{i}:v]fps={FPS},"
             if pad > 0: f += f"tpad=stop_mode=clone:stop_duration={pad:.3f},"
-            f += f"trim=duration={s['dur']},setpts=PTS-STARTPTS,scale={W}:{H}:flags=lanczos:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+            f += f"trim=start={st0}:end={st0 + s['dur']},setpts=PTS-STARTPTS,scale={W}:{H}:flags=lanczos:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+            if s.get("grade"): f += "," + s["grade"]
+            if s.get("fade_in"): f += f",fade=t=in:st=0:d={s['fade_in']}"
+            if s.get("fade_out"): f += f",fade=t=out:st={s['dur'] - s['fade_out']:.3f}:d={s['fade_out']}"
             if s.get("prototype"): f += label(s.get("label", "PROTOTYPE FOOTAGE - AI clip - continuity not final"))
             f += f"[v{i}]"
         chains.append(f); labels.append(f"[v{i}]")
@@ -94,11 +107,11 @@ def main():
            "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "256k", "-t", f"{total:.3f}", "-movflags", "+faststart", out]
     print("rendering", out); r = subprocess.run(cmd)
     if r.returncode: print("ffmpeg failed"); return 1
-    log.update(output=out, output_sha256=sha(out), total_seconds=total, flagged=flagged, ai_motion_seconds=motion_seconds, storyboard_still_seconds=still_seconds, warnings=warnings, audio_sha256=sha(a.audio), pilot=a.pilot,
+    log.update(output=out, output_sha256=sha(out), total_seconds=total, flagged=flagged, ai_motion_seconds=motion_seconds, storyboard_still_seconds=still_seconds, title_card_seconds=title_seconds, warnings=warnings, audio_sha256=sha(a.audio), pilot=a.pilot,
                ffmpeg=subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True).stdout.splitlines()[0])
     json.dump(log, open(os.path.join(ROOT, "final", "build_log.json"), "w"), indent=1)
     for w in warnings: print("  warning:", w)
-    print(f"composition: {motion_seconds:.1f} s AI motion clips, {still_seconds:.1f} s storyboard stills, total {total:.1f} s")
+    print(f"composition: {motion_seconds:.1f} s AI motion clips, {title_seconds:.1f} s title cards, {still_seconds:.1f} s storyboard stills, total {total:.1f} s")
     print("built:", out, "(FLAGGED, NOT FINAL)" if flagged else "(now run: python3 qc.py final " + out + ")")
     return 0
 

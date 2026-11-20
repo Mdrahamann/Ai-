@@ -67,3 +67,8 @@ How it was tested: planted flaws in stand-in clips made from your keyframes. A p
 - **Prototype:** `final/the_wrong_delivery_pilot_PROTOTYPE.mp4`, 33.5 s, 1920x1080. 14 s of AI motion (your two uploaded clips, unchanged and copied to `clips/`) and 19.5 s of labelled storyboard stills, with voices, sound and subtitles. Rebuild: `PILOT=pilot_prototype.json AUDIO_OUT=build/out_prototype python3 build/audio.py && PILOT=pilot_prototype.json python3 build/timeline.py --audio build/out_prototype/mix.wav --srt build/out_prototype/pilot.srt --subtitles`.
 - **Gaps:** `PRODUCTION_GAPS.md`.
 - **Full episode plan (8:00):** `episode1/EPISODE1_SCREENPLAY.md`, `episode1/episode1_shot_list.csv`, `episode1/ANIMATION_PLAN.md`. Regenerate with `python3 episode1/plan.py` (it checks the 480 s runtime, line timing and story rules).
+
+## Cinematic pilot from the six Flow clips (2026-11-20)
+- **Main pilot:** `final/the_wrong_delivery_CINEMATIC_PILOT.mp4`, 36.7 s, 1920x1080, five approved shots with titles. Shot 03 is rejected (wrong man).
+- **Review cut:** `final/the_wrong_delivery_REVIEW_all_six_shots.mp4`, all six shots with a flag on screen for each.
+- **Review and decisions:** `QUALITY_REVIEW.md`. **Expansion plan:** `episode1/EXPANSION_FROM_PILOT.md`.

@@ -1,0 +1,119 @@
+{
+  "title": "The Wrong Delivery: cinematic pilot (approved footage)",
+  "stage": "cinematic",
+  "fps": 24,
+  "size": [
+    1920,
+    1080
+  ],
+  "subtitles_default": false,
+  "shots": [
+    {
+      "id": "T0",
+      "title": "THE WRONG DELIVERY",
+      "kind": "title",
+      "dur": 3.0,
+      "text": "THE WRONG DELIVERY",
+      "subtext": "EPISODE 1  PILOT",
+      "lines": []
+    },
+    {
+      "id": "01",
+      "title": "Chase",
+      "kind": "clip",
+      "clip": "clips/shot01_sports_coupe_accelerating.mp4",
+      "start": 0.0,
+      "dur": 4.0,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.2,
+          "text": "Three hours ago, this was supposed to be a simple delivery."
+        }
+      ],
+      "overhang": 0.5
+    },
+    {
+      "id": "02",
+      "title": "Handoff",
+      "kind": "clip",
+      "clip": "clips/shot02_characters_exchanging_envelope_1080p.mp4",
+      "start": 0.0,
+      "dur": 5.3,
+      "lines": [
+        {
+          "who": "mia",
+          "style": "room",
+          "at": 0.45,
+          "text": "Pier Nineteen. Midnight. Do not open the package."
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Discovery",
+      "kind": "clip",
+      "clip": "clips/shot04_driver_opening_glowing_metal_case.mp4",
+      "start": 0.2,
+      "dur": 6.6,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.3,
+          "text": "I should have walked away the moment I saw that box."
+        },
+        {
+          "who": "alex",
+          "style": "room",
+          "at": 4.2,
+          "text": "What the hell is this?"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Escape",
+      "kind": "clip",
+      "clip": "clips/shot05_man_running_through_neon_alley.mp4",
+      "start": 0.3,
+      "dur": 6.8,
+      "lines": [
+        {
+          "who": "alex",
+          "style": "vo",
+          "at": 0.4,
+          "text": "By then, half the city was looking for me."
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Confrontation",
+      "kind": "clip",
+      "clip": "clips/shot06_characters_facing_across_office.mp4",
+      "start": 0.0,
+      "dur": 7.0,
+      "lines": [
+        {
+          "who": "mia",
+          "style": "room",
+          "at": 0.6,
+          "text": "You were never meant to deliver it. You were meant to disappear."
+        }
+      ],
+      "grade": "huesaturation=colors=m+b:hue=-40:saturation=-0.35,colorbalance=rs=0.04:gs=0.0:bs=-0.06:rm=0.06:gm=0.02:bm=-0.08:rh=0.05:gh=0.03:bh=-0.07",
+      "fade_out": 0.5
+    },
+    {
+      "id": "T9",
+      "title": "TO BE CONTINUED",
+      "kind": "title",
+      "dur": 4.0,
+      "text": "TO BE CONTINUED",
+      "subtext": "THE WRONG DELIVERY  EPISODE 1",
+      "lines": []
+    }
+  ]
+}

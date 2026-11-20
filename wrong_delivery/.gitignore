@@ -8,3 +8,5 @@ final/*
 build/out/
 __pycache__/
 build/out_prototype/
+build/out_cinematic/
+build/out_review/

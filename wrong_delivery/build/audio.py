@@ -76,7 +76,7 @@ def voices():
             nz = np.where(np.abs(a) > 0.01)[0]; a = a[: nz[-1] + int(0.2 * SR)] if len(nz) else a
             start = s["start"] + L["at"]; end = start + len(a) / SR
             lines.append(dict(shot=s["id"], who=L["who"], text=L["text"], style=L["style"], start=round(start, 3), end=round(end, 3), dur=round(len(a) / SR, 3), a=a,
-                              shot_end=s["end"]))
+                              shot_end=s["end"], overhang=s.get("overhang", 0.0)))
     return lines
 
 def export_wavs(lines):
@@ -88,7 +88,7 @@ def measure(lines):
     print(f"total {TOTAL:.1f} s over {len(SHOTS)} shots")
     bad = False
     for L in lines:
-        slack = L["shot_end"] - L["end"]
+        slack = L["shot_end"] + L["overhang"] - L["end"]
         flag = "OK " if slack >= 0.25 else "TOO LONG"
         bad |= slack < 0.25
         print(f"shot {L['shot']} {L['who']:5s} {L['dur']:.2f}s  starts {L['start']:.2f}  ends {L['end']:.2f}  shot ends {L['shot_end']:.2f}  slack {slack:+.2f}  {flag}")
@@ -226,6 +226,10 @@ def design(s):
     """returns (ambience layers, sfx cues) for a shot as lists of (generator, start offset, gain)."""
     d = s["dur"]; x = 0.35  # ambience beds start slightly before the cut and end after it (cross-fade)
     sid = s.get("sound", s["id"])  # a shot can borrow another shot's sound design
+    if sid == "T0":
+        return ([(lambda D: rain(D, 0.3), 0.0, 0.8), (lambda D: elec_pulse(D), 0.0, 0.8)], [])
+    if sid == "T9":
+        return ([(lambda D: room_tone(D, 1.0), 0.0, 1.0), (lambda D: rain(D, 0.08), 0.0, 0.5)], [])
     if sid == "01":
         return ([(lambda D: rain(D, 1.0), -x, 0.9), (lambda D: engine(D, 62, 118), -x, 1.0), (lambda D: tire_spray(D), -x, 0.9),
                  (lambda D: siren(D, 1.0, 0), 0.0, 1.0), (lambda D: siren(D, 1.0, 2), 0.7, 0.7)], [])
@@ -260,7 +264,7 @@ def build():
     # music level per shot (quiet under dialogue scenes, rises into the final sting)
     gain = np.ones(N, np.float32)
     for s in SHOTS:
-        lv = {"01": 0.5, "02": 0.25, "03": 0.4, "04": 0.2, "05": 0.55, "06": 0.45}[s["id"]]
+        lv = {"01": 0.5, "02": 0.25, "03": 0.4, "04": 0.2, "05": 0.55, "06": 0.45, "T0": 0.6, "T9": 0.5}.get(s["id"], 0.4)
         a, b = int(s["start"] * SR), int(s["end"] * SR); gain[a:b] = lv
     gain = np.convolve(gain, np.ones(int(0.5 * SR)) / int(0.5 * SR), mode="same")
     mus = np.pad(mus, (0, max(0, N - len(mus))))[:N] * gain
